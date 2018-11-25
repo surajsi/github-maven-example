@@ -4,9 +4,12 @@ pipeline {
 		stages {
 			stage ('clean') {
 			steps {
+				tools {
+  					maven 'maven'
+							
 				
 				sh 'mvn clean'
-				
+				}
 				}
 				}
 			stage ('package') {
