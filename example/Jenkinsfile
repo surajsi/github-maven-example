@@ -20,5 +20,10 @@ pipeline {
 				
 				}
 				}
+			stage ('mail sending'){
+				steps {
+					emailext attachLog: true, body: 'hello', recipientProviders: [requestor()], subject: 'job status', to: 'surajsinghjuly27@gmail.com'
+				}
+			}
 				}
 				}
