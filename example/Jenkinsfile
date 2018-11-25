@@ -9,14 +9,14 @@ pipeline {
 			steps {
 								
 				
-				sh 'mvn clean'
+				sh 'mvn -f example/pom.xml clean'
 				
 				}
 				}
 			stage ('package') {
 			steps {
 				
-				sh 'mvn package'	
+				sh 'mvn -f example/pom.xml package'	
 				
 				}
 				}
