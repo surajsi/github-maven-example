@@ -25,5 +25,11 @@ pipeline {
 					emailext attachLog: true, body: 'hello', recipientProviders: [requestor()], subject: 'job status', to: 'surajsinghjuly27@gmail.com'
 				}
 			}
+			
+			stage ('nexus repositories')
+			nexusPublisher nexusInstanceId: 'nexuslocal', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/example/target']], mavenCoordinate: [artifactId: 'github-maven-example', groupId: 'com.github.kevinsawicki', packaging: 'jar', version: '1.0.0']]]
+
 				}
 				}
+}
+}
