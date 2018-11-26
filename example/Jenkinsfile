@@ -26,7 +26,8 @@ pipeline {
 				}
 			}
 			
-			stage ('nexus repositories')
+			stage ('nexus repositories'){
+				steps {
 			nexusPublisher nexusInstanceId: 'nexuslocal', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: '/example/target']], mavenCoordinate: [artifactId: 'github-maven-example', groupId: 'com.github.kevinsawicki', packaging: 'jar', version: '1.0.0']]]
 
 				}
